@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href="style.css" rel="stylesheet" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+var i=1;
+function func()
+{	
+	
+	setTimeout(fun,10000);
+	
+}
+function fun()
+{	var ele=document.getElementById("body");
+	ele.style.backgroundImage="url(C:/website/images/1.jpg)";
+	if(i<3)
+	{
+		i++;
+	}
+	else{
+		i=1;
+	}	
+}
+</script>
+<title>
+Login
+</title>
+</head>
+<body id="body">
+<div id="container">
+<nav>
+<ul>
+<li><a href="Login.html">Home</a></li>
+<li><a href="Add Event.html">Host A Party</a></li>
+<li><a href="Contact Us.html">Contact Us</a></li>
+</ul>
+</nav>
+<div class="login-block">
+    <h1>Login</h1>
+    <input type="text" value="" placeholder="Username" id="username">
+    <input type="password" value="" placeholder="Password" id="password">
+    <button>Submit</button>
+</div>
+</div>
+</body>
+</html>

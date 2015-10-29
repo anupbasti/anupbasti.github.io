@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href="style.css" rel="stylesheet" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="myjs.js">
+</script>
+<title>
+Admin
+</title>
+</head>
+<body>
+<div id="container">
+<nav>
+<ul>
+<li><a href="Login.html">Home</a></li>
+<li><a href="Add Event.html">Host A Party</a></li>
+<li><a href="Contact Us.html">Contact Us</a></li>
+</ul>
+</nav>
+<form id="simpleform">
+
+<div>
+<label for="Event">Event:</label>
+<input type="text" name="Event" id="Event">
+</div>
+
+<div>
+<label for="Club">Club:</label>
+<input type="text" name="Club" id="Club">
+</div>
+<div>
+<label for="Location">Location:</label>
+<input type="text" name="Location" id="Location">
+</div>
+<div>
+<label for="DJ">DJ:</label>
+<input type="text" name="DJ" id="DJ">
+</div>
+<div>
+<label for="Limit">Guest List Limit:</label>
+<input type="text" name="Limit" id="Limit">
+</div>
+<div>
+<label for="fileupload">Banner:</label>
+<input type="file" name="fileupload" id="fileupload" multiple="multiple" />
+</div>
+
+
+<div>
+<input type="submit" value="Submit" id="button">
+</div>
+
+
+<hr />
+<b>Your Party</b>
+<br />
+<br />
+<div id="dvPreview">
+</div>
+
+</form>
+</div>
+</body>
+</html>
