@@ -163,6 +163,18 @@ display:block;
 	margin-top:50px;
 		
 }
+
+#largeform{
+	width:600px;
+    padding:20px;
+    background:#D6D6D6;
+    border-radius:30px;
+    border-top:5px solid #ff656c;
+    margin:100px auto;
+	margin-top:50px;
+		
+}
+
 label{
 	float:left;
 	width:150px;
@@ -207,6 +219,7 @@ textarea {
 background:#ff7b81;
 }
 
+
 @media screen and (max-width:959px){
 	#container{
 		width:100%;
@@ -249,6 +262,13 @@ background:#ff7b81;
 		width:87%;
 		font-size:13px;
 	}
+	
+	#largeform{
+	width:87%;
+    font-size:10px;
+	
+	}
+	
 	input{
 		width:45%;
 	}
@@ -258,6 +278,7 @@ background:#ff7b81;
 	}
 	#button{
 		margin-left:125px;
+		width:30%;
 	}
 	#dvPreview{
 		width:100%;
@@ -266,8 +287,25 @@ background:#ff7b81;
 	textarea {
 	margin-left:2px;
 	width:255px;
+	}
+	img{
+	width:20px;
+	height:20px;
+	float:right;
+	}
+	
+	body{
+		background-size:500px 770px;
+	}
+
+}
+
+/* Table css */
+
+table, th,td {
+	border-collapse: collapse;
+	text-align:center;
+	padding:5px;
 	
 }
-	
-	
-}
+

@@ -27,3 +27,14 @@ $(function () {
     });
 });
 
+function printDiv(printarea) {
+     var printContents = document.getElementById(printarea).innerHTML;
+     var originalContents = document.body.innerHTML;
+	alert("hi");
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+
