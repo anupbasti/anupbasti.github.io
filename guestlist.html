@@ -10,8 +10,8 @@
 	<link href="style.css" rel="stylesheet" type="text/css">
 	<link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="myjs.js">
-</script>
+	<script src="myjs.js" ></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.0/mustache.min.js" ></script>
 </head>
 
 <body>
@@ -27,45 +27,24 @@
 </nav>	
 	<form id="largeform">
 		<a href="" onclick="printDiv('printarea')"><img src="print.png" height="5%" width="5%" align="right" /></a>
-	<div id="printarea">
-		<table class="responstable">  
-					
+	<div id="printarea">		
+	    <table id="guests" class="responstable" border="1" >
 			<tr>
 				<th>Enter</th>
 				<th><span>First Name</span></th>
 				<th>Last Name</th>
 				<th>Phone Number</th>
 				<th>No. of Guests</th>				
-			</tr>
-			
-			<tr>
-				<td><input type="checkbox" name="guest" /><br></td>
-				<td>Anup</td>
-				<td>Basti</td>
-				<td>8884031243</td>
-				<td>3</td>
-			</tr>
-			
-			<tr>
-				<td><input type="checkbox" name="guest" /></td>
-				<td>Karthik</td>
-				<td>Prabhu</td>
-				<td>9916204140</td>
-				<td>2</td>
-			</tr>
-			
-			<tr>
-				<td><input type="checkbox" name="guest"  /></td>
-				<td>Sajan</td>
-				<td>Patil</td>
-				<td>9916746612</td>
-				<td>3</td>
 			</tr>			
+			</table>				
+			
+			
 		</table>		
 	</form>
 </div>
 </div>
+<script src="jquery.js"></script>
+<script src="main.js"></script>
 </body>
-
 </html>
 
