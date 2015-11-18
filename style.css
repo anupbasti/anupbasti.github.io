@@ -178,6 +178,17 @@ display:block;
 		
 }
 
+#contactform{
+	width:450px;
+    padding:20px;
+    background:#D6D6D6;
+    border-radius:30px;
+    border-top:5px solid #ff656c;
+    margin:100px auto;
+	margin-top:50px;
+		
+}
+
 
 #largeform{
 	width:600px;
@@ -282,13 +293,14 @@ background:#ff7b81;
 @media screen and (max-width:640px){
 	
 	nav{
+		text-align:left;
 		width:100%;		
-		font-size:10px;
+		font-size:7px;
 	}
 	
 	nav ul li a{
 		text-align:left;
-		padding:5px;
+		padding:7px;
 		
 	}
 	
@@ -302,18 +314,47 @@ background:#ff7b81;
 		font-size:13px;
 	}
 	
+	#contactform{
+		width:87%;
+		font-size:14px;	
+		
+	}
+	
+	#contactform input{
+		width:55%;		
+	}
+	#contactform label{
+		width:30%;		
+	}
+	
+	#contactform #button{
+		width:40%;
+		margin-left:80px;;
+	}
+	
 	#largeform{
 	width:87%;
     font-size:10px;
 	
 	}
 	
+	#dashboardform{
+	width:87%;
+	font-size:4px;
+
+	}
+	
+	#events{
+		width:30%;
+		font-size:4px;
+	}
+	
 	input{
-		width:45%;
+		width:40%;
 	}
 	label{
-		width:42%;
-		text-align:left;
+		width:47%;
+		
 	}
 	#button{
 		margin-left:125px;
