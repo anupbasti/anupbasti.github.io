@@ -67,6 +67,12 @@ nav ul li a:hover{
 	border-top:7px solid #ff656c;
 }
 
+#dash.active{
+	background-color:#ff7b81;
+	border-radius:30px;
+	border-top:7px solid #ff656c;
+}
+
 
 
 body{
@@ -182,6 +188,18 @@ display:block;
     margin:100px auto;
 	margin-top:50px;
 		
+}
+
+#dashboardform{
+	width:900px;
+    padding:20px;
+    background:#D6D6D6;
+    border-radius:30px;
+    border-top:5px solid #ff656c;
+    margin:100px auto;
+	margin-top:50px;
+	
+	
 }
 
 label{
