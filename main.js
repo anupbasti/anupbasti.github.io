@@ -8,17 +8,28 @@ var $events = $('#events');
 
 $('#sub').on('click', function(){
  
- var order = {
-	name: $user.val(),
-	drink: $pass.val(),
+ var login = {
+	user: $user.val(),
+	pass: $pass.val(),
  };
  
  $.ajax({
     type: 'POST',
-	url: 'http://demo4707540.mockable.io/submit',
-	data: order,
+	url: 'https://demo4707540.mockable.io/submit',
+	data: login,
 	success: function(data){
-		alert('Login Successful');
+		$.each(data, function(i, ele){
+			if(ele == 1)
+			{
+				alert('Login success');
+			}
+			else
+			{
+				alert('Incorrect username/password');
+			}
+		});
+		
+		
 		
 	
 	},
