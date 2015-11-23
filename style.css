@@ -295,18 +295,20 @@ background:#ff7b81;
 	nav{
 		text-align:left;
 		width:100%;		
-		font-size:7px;
+		font-size:6px;
 	}
 	
 	nav ul li a{
 		text-align:left;
-		padding:7px;
+		padding:6px;
 		
 	}
 	
 		
 	.login-block{
-		width:70%;
+		width:80%;
+		font-size:10px;
+		
 	}
 	
 	#simpleform{
@@ -316,7 +318,7 @@ background:#ff7b81;
 	
 	#contactform{
 		width:87%;
-		font-size:14px;	
+		font-size:12px;	
 		
 	}
 	
@@ -354,6 +356,7 @@ background:#ff7b81;
 	}
 	label{
 		width:47%;
+		
 		
 	}
 	#button{
