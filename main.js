@@ -21,7 +21,7 @@ $('#sub').on('click', function(){
 		$.each(data, function(i, ele){
 			if(ele == 1)
 			{
-				alert('Login success');
+				location.href = "dashboard.html";
 			}
 			else
 			{
