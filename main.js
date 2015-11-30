@@ -4,7 +4,13 @@ var $user = $('#username');
 var $pass = $('#password');
 var $guests = $('#guests');
 var $events = $('#events');
-
+var $ename= $('Event');
+var $dj= $('DJ');
+var $limit= $('Limit');
+var $edate= $('date_foo');
+var $deadline= $('myTime');
+var $club= $('Club');
+var $banner= $('fileupload');
 
 $('#sub').on('click', function(){
  
@@ -22,6 +28,49 @@ $('#sub').on('click', function(){
 			if(ele == 1)
 			{
 				location.href = "dashboard.html";
+			}
+			else
+			{
+				alert('Incorrect username/password');
+			}
+		});
+		
+		
+		
+	
+	},
+	
+	error: function(){
+		alert('Cannot Login');
+	}
+	
+ 
+ });
+
+});
+
+
+$('#button').on('click', function(){
+ 
+ var allevents = {
+	ename: $ename.val();
+	dj:  $dj.val();
+	limit:  $limit.val();
+	edate: $edate.val();
+	deadline:  $deadline.val();
+	club: $club.val();
+	banner: $banner.val();
+ };
+ 
+ $.ajax({
+    type: 'POST',
+	url: 'https://demo8492314.mockable.io/addevents',
+	data: allevents,
+	success: function(data){
+		$.each(data, function(i, ele){
+			if(ele == 1)
+			{
+				alert('Event successfully added to your dashboard');
 			}
 			else
 			{
