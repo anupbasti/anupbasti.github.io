@@ -1,17 +1,31 @@
 $(function () {
 
+//Variables for login page
 var $user = $('#username');
 var $pass = $('#password');
+
+//Variables for guest list page
 var $guests = $('#guests');
 var $events = $('#events');
-var $ename= $('Event');
-var $dj= $('DJ');
-var $limit= $('Limit');
-var $edate= $('date_foo');
-var $deadline= $('myTime');
-var $club= $('Club');
-var $banner= $('fileupload');
 
+//Variables for add event page
+var $ename = $('#Event');
+var $dj = $('#DJ');
+var $limit = $('#Limit');
+var $fee = $('#Fee');
+var $edate = $('#date_foo');
+var $deadline = $('#myTime');
+var $club = $('#Club');
+var $banner = $('#fileupload');
+
+//Variables for contact us page
+var $cname= $('#name');
+var $cemail= $('#email');
+var $cphone= $('#web');
+var $cquery= $('#query');
+
+
+//login
 $('#sub').on('click', function(){
  
  var login = {
@@ -49,69 +63,99 @@ $('#sub').on('click', function(){
 
 });
 
+//Add Events
 
-$('#button').on('click', function(){
+$('#ebutton').on('click', function(e){
+	e.preventDefault();
  
  var allevents = {
-	ename: $ename.val();
-	dj:  $dj.val();
-	limit:  $limit.val();
-	edate: $edate.val();
-	deadline:  $deadline.val();
-	club: $club.val();
-	banner: $banner.val();
+	ename: $ename.val(),
+	dj:  $dj.val(),
+	limit:  $limit.val(),
+	fee : $fee.val(),
+	edate: $edate.val(),
+	deadline:  $deadline.val(),
+	club: $club.val(),
+	banner : $banner.val()
+
  };
  
  $.ajax({
     type: 'POST',
-	url: 'https://demo8492314.mockable.io/addevents',
+	url: 'https://demo4707540.mockable.io/addevents',
 	data: allevents,
-	success: function(data){
-		$.each(data, function(i, ele){
-			if(ele == 1)
+	success: function(data){		
+			if(data["id"] == 1)
 			{
 				alert('Event successfully added to your dashboard');
+				location.href = "dashboard.html";
 			}
 			else
 			{
-				alert('Incorrect username/password');
+				alert('Event not added to your dashboard');
+			}		
+	
+	},
+	
+	error: function(){
+		alert('Cannot contact our server at this moment');
+	}	
+ 
+ });
+
+});
+
+
+//Edit Events
+
+$.ajax({
+	type: 'GET',
+	url: 'https://demo4707540.mockable.io/dashedit',
+	success: function(data) {
+			var eventid = $("#eventid").val();				
+			if(eventid != 'undefined' && eventid==data["id"])
+			{
+				$('form').loadJSON(data);
 			}
-		});
-		
-		
-		
-	
 	},
-	
 	error: function(){
-		alert('Cannot Login');
+		alert('Error Loading Page');
 	}
-	
- 
- });
 
 });
 
 
-/* to pre populate form data when click on Edit
+//Contact us
 
-$('#event').on('click', function(){
-	echo('success');
-  
- $.ajax({
-	
+$('#cbutton').on('click', function(e){
+	e.preventDefault();
 	 
-    type: 'GET',
-	url: 'http://demo4707540.mockable.io/dash',
+ var allcontacts = {
+	cname: $cname.val(),
+	cemail: $cemail.val(),
+	cphone:  $cphone.val(),
+	cquery:  $cquery.val()
+	
+ };
+ 
+ $.ajax({
+    type: 'POST',
+	url: 'http://demo4707540.mockable.io/submit',
+	data: allcontacts,
 	success: function(data){
-		//$('form').loadJSON(data);
-		echo('success');
-		
+		  if(data["id"] == 1)
+			{
+				alert('We will get back to you shortly');
+			}
+			else
+			{
+				alert('Query not submitted');
+			}		
 	
 	},
 	
 	error: function(){
-		alert('Cannot Load Data');
+		alert('Cannot contact our server at this moment');
 	}
 	
  
@@ -119,7 +163,8 @@ $('#event').on('click', function(){
 
 });
 
-*/
+
+
 
 var guestTemplate = "" +
 "<tr>"+
@@ -132,7 +177,7 @@ var guestTemplate = "" +
 
 var eventTemplate = "" +
 "<tr>"+
-"<td><a href=event.html id='edit'>Edit</a>/<a href=# data-id='{{id}}' class='remove'>Del</a></td>"+
+"<td><a href=event.html?id={{id}} id='edit'>Edit</a>/<a href=# data-id='{{id}}' class='remove'>Del</a></td>"+
 //"<td><button data-id='{{id}}' class='remove'>Edit</button><br/><br/><button data-id='{{id}}' class='remove'>Delete</button></td>"+
 "<td>{{event}}</td>"+
 "<td>{{dj}}</td>"+
@@ -202,3 +247,25 @@ $events.delegate('.remove', 'click', function() {
 });
 
 });
+
+function GetURLParameter(sParam){
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++)
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam)
+        {
+            return decodeURIComponent(sParameterName[1]);
+        }
+    }
+}
+
+function checkid()
+{
+	var id = GetURLParameter('id');	
+	if(id!='')
+	{
+	document.getElementById('eventid').value = id;
+	}
+}

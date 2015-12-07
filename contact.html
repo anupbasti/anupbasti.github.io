@@ -10,7 +10,14 @@
 	<link href="style.css" rel="stylesheet" type="text/css">
 	<link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="jquery.js"></script>
+	<script src="myjs.js" ></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.0/mustache.min.js" ></script>
+<script src="main.js"></script>
+<script src="jquery.loadJSON.js">
+</script>
+
 </head>
 
 <body>
@@ -22,11 +29,11 @@
 		<li><a href="dashboard.html">Dashboard</a></li>
 		<li><a href="guestlist.html">Guestlist</a></li>
 		<li><a href="contact.html" id="contact" class="active">Contact Us</a></li>
-		<li><a href="index.html" style="float:right;">logout</li></a>
+		<li><a href="index1.html" style="float:right;">logout</li></a>
 
 	</ul>
 </nav>	
-	<form id="contactform">
+	<form id="contactform" enctype="multipart/form-data" method="post">
 		
 		<p class="name">
 			<input type="text" name="name" id="name" placeholder="John Doe" />
@@ -44,14 +51,15 @@
 		</p>		
 	
 		<p class="text">
-			<textarea name="text" placeholder="Post your queries here" /></textarea>
+			<textarea id="query" name="text" placeholder="Post your queries here" /></textarea>
 		</p>
 		
 		<p class="submit">
-			<input type="submit" value="Send" id="button" />
+			<input type="submit" value="Send" id="cbutton" />
 		</p>
 	</form>
 </div>
+
 </body>
 
 </html>
