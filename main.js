@@ -165,7 +165,7 @@ $('#cbutton').on('click', function(e){
 
 
 
-
+// Guestlist
 var guestTemplate = "" +
 "<tr>"+
 "<td></td>"+
@@ -174,22 +174,6 @@ var guestTemplate = "" +
 "<td>{{phone}}</td>"+
 "<td>{{limit}}</td>"+
 "</tr>";
-
-var eventTemplate = "" +
-"<tr>"+
-"<td><a href=event.html?id={{id}} id='edit'>Edit</a>/<a href=# data-id='{{id}}' class='remove'>Del</a></td>"+
-//"<td><button data-id='{{id}}' class='remove'>Edit</button><br/><br/><button data-id='{{id}}' class='remove'>Delete</button></td>"+
-"<td>{{event}}</td>"+
-"<td>{{dj}}</td>"+
-"<td>{{limit}}</td>"+
-"<td>{{fee}}</td>"+
-"<td>{{datetime}}</td>"+
-"<td>{{deadline}}</td>"+
-"<td>{{clubid}}</td>"+
-"<td><img src={{banner}} width=120px height=90px></td>"+
-"</tr>";
-
-
 
 
 function addGuests(guest){
@@ -210,6 +194,23 @@ $.ajax({
 
 });
 
+//Dashboard - Display/Edit Events
+
+var eventTemplate = "" +
+"<tr>"+
+"<td><a href=event.html?id={{id}} id='edit'>Edit</a>/<a href=# data-id='{{id}}' class='remove'>Del</a></td>"+
+//"<td><button data-id='{{id}}' class='remove'>Edit</button><br/><br/><button data-id='{{id}}' class='remove'>Delete</button></td>"+
+"<td>{{event}}</td>"+
+"<td>{{dj}}</td>"+
+"<td>{{limit}}</td>"+
+"<td>{{fee}}</td>"+
+"<td>{{datetime}}</td>"+
+"<td>{{deadline}}</td>"+
+"<td>{{clubid}}</td>"+
+"<td><img src={{banner}} width=120px height=90px></td>"+
+"</tr>";
+
+
 function addEvents(event){
 	$events.append(Mustache.render(eventTemplate,event));
 }
@@ -229,7 +230,7 @@ $.ajax({
 });
 
 
-
+//Delete Events
 
 $events.delegate('.remove', 'click', function() {
 	var $tr = $(this).closest('tr');
@@ -246,8 +247,12 @@ $events.delegate('.remove', 'click', function() {
 	});
 });
 
+$("#time").timepicki();
+
 });
 
+
+//function to fetch id from URL 
 function GetURLParameter(sParam){
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
@@ -269,3 +274,5 @@ function checkid()
 	document.getElementById('eventid').value = id;
 	}
 }
+
+
