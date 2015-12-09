@@ -1,8 +1,12 @@
+
+
 $(function () {
 
 //Variables for login page
 var $user = $('#username');
 var $pass = $('#password');
+var $userid = localStorage.getItem("userid");
+
 
 //Variables for guest list page
 var $guests = $('#guests');
@@ -27,30 +31,44 @@ var $cquery= $('#query');
 
 //login
 $('#sub').on('click', function(){
- 
+
  var login = {
 	user: $user.val(),
 	pass: $pass.val(),
+	userid: $userid
  };
  
  $.ajax({
     type: 'POST',
 	url: 'https://demo4707540.mockable.io/submit',
 	data: login,
-	success: function(data){
-		$.each(data, function(i, ele){
-			if(ele == 1)
+	success: function(data){		
+			if($user.val()== data["username"]  &&  $pass.val() == data["password"])
 			{
-				location.href = "dashboard.html";
+				if (typeof(Storage) !== "undefined") {		
+			
+					if(localStorage.getItem("userid")== null || data["userid"] != $userid ){
+						//alert('new user');
+						suserid = data["userid"];
+						alert(suserid);
+						localStorage.setItem("userid", data["userid"]);
+						location.href = "dashboard.html";
+					}
+					else {
+							if(data["userid"] == $userid){
+							location.href = "dashboard.html";
+							}
+					}	
+				}
+				else{
+					alert("Sorry, your browser does not support Web Storage...");
+					location.href = "dashboard.html";
+				}
 			}
 			else
 			{
 				alert('Incorrect username/password');
-			}
-		});
-		
-		
-		
+			}		
 	
 	},
 	
@@ -249,6 +267,8 @@ $events.delegate('.remove', 'click', function() {
 
 $("#time").timepicki();
 
+
+
 });
 
 
@@ -273,6 +293,14 @@ function checkid()
 	{
 	document.getElementById('eventid').value = id;
 	}
+}
+
+function deluser()
+{
+	//alert('delete');
+	localStorage.removeItem("userid");
+	
+	
 }
 
 
