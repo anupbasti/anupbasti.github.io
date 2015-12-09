@@ -50,7 +50,7 @@ $('#sub').on('click', function(){
 					if(localStorage.getItem("userid")== null || data["userid"] != $userid ){
 						//alert('new user');
 						suserid = data["userid"];
-						alert(suserid);
+						//alert(suserid);
 						localStorage.setItem("userid", data["userid"]);
 						location.href = "dashboard.html";
 					}
